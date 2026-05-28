@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wat is je bedrijf waard? · 7 juli 2026</title>
+<meta name="description" content="Een persoonlijke middag voor ondernemers. Wat is je bedrijf waard en hoe verhoog je die waarde. Dinsdag 7 juli 2026, MyOffice Utrecht.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="brand.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--vz-bg-light);
+    color:var(--color-text-body);
+    font-family:var(--font-sans);
+    line-height:var(--leading-relaxed);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+  .accent{color:var(--vz-secondary)}
+
+  /* topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:28px 0 0}
+  .topbar img{height:34px;width:auto;display:block}
+  .topbar .stamp{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-muted);font-weight:500;font-variant-numeric:tabular-nums}
+
+  /* hero */
+  .hero{position:relative;padding:74px 0 64px}
+  .hero .ring{
+    position:absolute;top:-60px;right:-120px;width:520px;height:520px;border-radius:var(--radius-full);
+    border:1.5px solid var(--vz-accent);opacity:.5;z-index:0;pointer-events:none;
+  }
+  .hero .ring::after{
+    content:"";position:absolute;inset:54px;border-radius:var(--radius-full);
+    border:1.5px solid var(--vz-secondary);opacity:.35;
+  }
+  .hero .blob{
+    position:absolute;top:40px;right:-40px;width:300px;height:300px;border-radius:var(--radius-full);
+    background:var(--vz-accent-soft);opacity:.45;z-index:0;pointer-events:none;
+  }
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vz-secondary);font-weight:600;margin-bottom:26px}
+  .eyebrow::before{content:"";width:30px;height:2px;background:var(--vz-accent);border-radius:2px}
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(2.7rem,7.6vw,5.6rem);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    color:var(--vz-primary);
+    max-width:15ch;
+  }
+  h1 em{font-style:normal;color:var(--vz-secondary);font-weight:500;display:block}
+  .lede{
+    font-size:clamp(1.05rem,1.6vw,1.28rem);
+    color:var(--color-text-body);
+    max-width:48ch;margin:30px 0 0;line-height:1.6;
+  }
+  .meta{display:flex;flex-wrap:wrap;gap:14px;margin:38px 0 36px}
+  .meta div{
+    background:var(--color-bg-surface);border:1px solid var(--color-border-default);
+    border-radius:var(--radius-lg);padding:14px 22px;box-shadow:var(--shadow-sm);
+  }
+  .meta .k{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vz-secondary);font-weight:600;margin-bottom:5px}
+  .meta .v{font-family:var(--font-display);font-weight:600;font-size:1.1rem;color:var(--vz-primary);font-variant-numeric:tabular-nums}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:11px;cursor:pointer;
+    font-family:var(--font-display);font-weight:600;font-size:1.02rem;letter-spacing:.005em;
+    background:var(--vz-secondary);color:#fff;text-decoration:none;
+    padding:16px 28px;border-radius:var(--radius-lg);border:none;
+    box-shadow:var(--shadow-md);
+    transition:transform var(--duration-base) var(--ease-out),background var(--duration-base) var(--ease-out),box-shadow var(--duration-base) var(--ease-out);
+  }
+  .btn:hover{background:var(--vz-primary);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+  .btn .wa{width:19px;height:19px;display:block;fill:currentColor}
+  .btn .arrow{transition:transform var(--duration-base) var(--ease-out)}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* sections */
+  .sec{padding:72px 0}
+  .sec-label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vz-secondary);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .sec-label b{color:var(--vz-accent);font-weight:700;font-variant-numeric:tabular-nums}
+  .statement{font-family:var(--font-display);font-weight:600;font-size:clamp(1.55rem,3.4vw,2.5rem);line-height:1.22;letter-spacing:-.01em;color:var(--vz-primary);max-width:26ch}
+  .statement b{color:var(--vz-secondary);font-weight:600}
+
+  /* program */
+  .prog{margin-top:42px;border-top:1px solid var(--color-border-default)}
+  .row{
+    display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:baseline;
+    padding:26px 14px;border-bottom:1px solid var(--color-border-default);
+    border-radius:var(--radius-lg);
+    transition:background var(--duration-slow) var(--ease-out),transform var(--duration-slow) var(--ease-out);
+  }
+  .row .num{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--vz-secondary);font-variant-numeric:tabular-nums;min-width:2.2ch}
+  .row h3{font-family:var(--font-display);font-weight:600;font-size:1.35rem;color:var(--vz-primary);line-height:1.2;margin-bottom:6px;letter-spacing:-.01em}
+  .row p{color:var(--color-text-muted);max-width:56ch;font-size:1.01rem;line-height:1.55}
+  .row:hover{background:var(--vz-bg-beige);transform:translateX(4px)}
+
+  /* practical band */
+  .band{background:var(--vz-primary);color:#fff;margin-top:24px;position:relative;overflow:hidden}
+  .band .wrap{z-index:2}
+  .band .mark{position:absolute;right:-40px;bottom:-50px;width:280px;opacity:.06;z-index:1}
+  .band .sec-label{color:var(--vz-accent)}
+  .band .sec-label b{color:#fff}
+  .band .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:34px;border-top:1px solid rgba(255,255,255,.16)}
+  .band .grid > div{padding:24px 28px 24px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+  .band .grid .k{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--vz-accent);font-weight:600;margin-bottom:8px}
+  .band .grid .v{font-family:var(--font-display);font-weight:600;font-size:1.28rem;color:#fff;line-height:1.3}
+  .band .grid .v small{display:block;font-family:var(--font-sans);font-weight:400;font-size:.9rem;color:rgba(255,255,255,.66);margin-top:5px;letter-spacing:0}
+
+  /* hosts */
+  .hosts{display:grid;grid-template-columns:repeat(2,1fr);gap:44px;margin-top:42px}
+  .host{background:var(--color-bg-surface);border:1px solid var(--color-border-default);border-radius:var(--radius-xl);padding:30px 32px;box-shadow:var(--shadow-sm)}
+  .host .hn{font-family:var(--font-display);font-weight:600;font-size:1.55rem;color:var(--vz-primary);margin-bottom:3px}
+  .host .hr{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--vz-secondary);font-weight:600;margin-bottom:13px}
+  .host p{color:var(--color-text-muted);max-width:42ch}
+
+  /* closing */
+  .closing{background:var(--vz-bg-beige);text-align:center;padding:88px 0}
+  .closing h2{font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,5vw,3.3rem);line-height:1.06;letter-spacing:-.02em;color:var(--vz-primary);margin-bottom:16px}
+  .closing h2 em{font-style:normal;color:var(--vz-secondary)}
+  .closing p{color:var(--color-text-muted);font-size:1.1rem;margin-bottom:32px}
+  .closing .note{margin-top:22px;font-size:.92rem;color:var(--color-text-muted)}
+
+  footer{padding:32px 0 50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  footer img{height:28px;width:auto;opacity:.9}
+  footer span{font-size:.82rem;color:var(--color-text-muted);letter-spacing:.03em}
+
+  /* reveal */
+  html.js .reveal{opacity:0;transform:translateY(18px)}
+  html.js .reveal.in{opacity:1;transform:none;transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+  html.js .hero .reveal{opacity:0;transform:translateY(20px);animation:rise .9s var(--ease-out) both}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.16s}.d3{animation-delay:.28s}.d4{animation-delay:.4s}.d5{animation-delay:.52s}
+
+  @media(max-width:680px){
+    .wrap{padding:0 20px}
+    .band .grid{grid-template-columns:1fr}
+    .band .grid > div{padding:20px 0}
+    .hosts{grid-template-columns:1fr;gap:20px}
+    .sec{padding:56px 0}
+    .hero .ring,.hero .blob{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html.js .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <img src="assets/logo-primary.png" alt="Verkoop je Zaak">
+    <div class="stamp">7 juli 2026 · Utrecht</div>
+  </div>
+
+  <header class="hero">
+    <div class="blob"></div>
+    <div class="ring"></div>
+    <div class="eyebrow reveal d1">Op uitnodiging &nbsp;·&nbsp; Een middag voor ondernemers</div>
+    <h1 class="reveal d2">Wat is je bedrijf waard?<em>En hoe verhoog je die waarde.</em></h1>
+    <p class="lede reveal d3">Een persoonlijke middag onder ondernemers, samen met Maarten Ligthart en Bernd Mintjes. Geen seminar, wel scherpe inzichten en eerlijke ervaringen van mensen die er middenin zitten of de stap al zetten.</p>
+    <div class="meta reveal d4">
+      <div><div class="k">Datum</div><div class="v">Dinsdag 7 juli 2026</div></div>
+      <div><div class="k">Locatie</div><div class="v">MyOffice Utrecht</div></div>
+      <div><div class="k">Tijd</div><div class="v">13.00 tot 17.00 uur</div></div>
+    </div>
+    <a class="btn reveal d5" href="https://wa.me/31646016688?text=Hoi%20Maarten%2C%20ik%20ben%20erbij%20op%207%20juli." target="_blank" rel="noopener">
+      <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.748-.748zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Ik ben erbij
+      <span class="arrow">&rarr;</span>
+    </a>
+  </header>
+</div>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label reveal"><b>01</b> Waarom deze middag</div>
+    <p class="statement reveal">Je hebt iets opgebouwd dat <b>waarde</b> heeft. De vraag is alleen: hoeveel precies, en wat maakt het straks meer waard?</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label reveal"><b>02</b> Wat we doen</div>
+    <div class="prog">
+      <div class="row reveal"><div class="num">01</div><div><h3>Wat je bedrijf echt waard is</h3><p>Inzicht in de werkelijke waarde van je onderneming, onderbouwd in plaats van op gevoel.</p></div></div>
+      <div class="row reveal"><div class="num">02</div><div><h3>De deukjes in je auto</h3><p>De concrete punten die je waarde nu drukken, en hoe je ze stap voor stap wegwerkt.</p></div></div>
+      <div class="row reveal"><div class="num">03</div><div><h3>Een blik op het platform</h3><p>Kort en concreet: hoe je je verkoopklaarheid en de waarde van je bedrijf live blijft volgen.</p></div></div>
+      <div class="row reveal"><div class="num">04</div><div><h3>Onder ondernemers</h3><p>Sparren met mensen die er middenin zitten en met ondernemers die de stap al gezet hebben.</p></div></div>
+      <div class="row reveal"><div class="num">05</div><div><h3>Verkocht, en dan?</h3><p>Het eerlijke verhaal over wat er gebeurt na de verkoop, en hoe je je daarop voorbereidt.</p></div></div>
+      <div class="row reveal"><div class="num">06</div><div><h3>Klein en persoonlijk</h3><p>Een select gezelschap, met lunch en alle ruimte voor een echt goed gesprek.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band">
+  <img class="mark" src="assets/beeldmerk.png" alt="">
+  <div class="wrap">
+    <div class="sec-label reveal"><b>03</b> Praktisch</div>
+    <div class="grid">
+      <div class="reveal"><div class="k">Datum</div><div class="v">Dinsdag 7 juli 2026</div></div>
+      <div class="reveal"><div class="k">Tijd</div><div class="v">Vanaf 13.00 uur<small>Inloop met lunch, einde rond 17.00 uur</small></div></div>
+      <div class="reveal"><div class="k">Locatie</div><div class="v">MyOffice Utrecht</div></div>
+      <div class="reveal"><div class="k">Goed om te weten</div><div class="v">Lunch inbegrepen<small>Beperkt aantal plekken, op persoonlijke uitnodiging</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label reveal"><b>04</b> Je hosts</div>
+    <div class="hosts">
+      <div class="host reveal">
+        <div class="hn">Maarten Ligthart</div>
+        <div class="hr">Verkoop je Zaak</div>
+        <p>Begeleidt ondernemers bij de verkoop van hun bedrijf, volledig op basis van no cure no pay.</p>
+      </div>
+      <div class="host reveal">
+        <div class="hn">Bernd Mintjes</div>
+        <div class="hr">Mentor &amp; overnames</div>
+        <p>Ervaren overnamementor met een groot netwerk en honderden bedrijfsanalyses op de teller.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2 class="reveal">Ben je erbij op <em>7 juli</em>?</h2>
+    <p class="reveal">Een paar uur, met scherpe inzichten en goede gesprekken onder ondernemers.</p>
+    <a class="btn reveal" href="https://wa.me/31646016688?text=Hoi%20Maarten%2C%20ik%20ben%20erbij%20op%207%20juli." target="_blank" rel="noopener">
+      <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.748-.748zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Ik ben erbij
+      <span class="arrow">&rarr;</span>
+    </a>
+    <div class="note reveal">Laat het me even weten, het liefst voor 3 juni.</div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <img src="assets/logo-primary.png" alt="Verkoop je Zaak">
+    <span>Een besloten middag &nbsp;·&nbsp; dinsdag 7 juli 2026 &nbsp;·&nbsp; Utrecht</span>
+  </footer>
+</div>
+
+<script>
+  document.documentElement.classList.add('js');
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.sec .reveal,.closing .reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

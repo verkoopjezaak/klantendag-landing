@@ -1,0 +1,263 @@
+/* ============================================================
+   Verkoop je Zaak — Design System Tokens
+   Bron: brandbook (PDF) + verkoopjezaak/verkoopklaar (src/index.css,
+   .claude/rules/styling.md)
+   ============================================================ */
+
+/* Webfonts.
+   Poppins = body + display fallback (lokaal in fonts/, alle gewichten + italics).
+   Prompt  = display/koppen/buttons. Volledig lokaal. */
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 100; src: url('fonts/Poppins-Thin.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 100; src: url('fonts/Poppins-ThinItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 200; src: url('fonts/Poppins-ExtraLight.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 200; src: url('fonts/Poppins-ExtraLightItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 300; src: url('fonts/Poppins-Light.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 300; src: url('fonts/Poppins-LightItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; src: url('fonts/Poppins-Regular.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 400; src: url('fonts/Poppins-Italic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; src: url('fonts/Poppins-Medium.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 500; src: url('fonts/Poppins-MediumItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; src: url('fonts/Poppins-SemiBold.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 600; src: url('fonts/Poppins-SemiBoldItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; src: url('fonts/Poppins-Bold.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 700; src: url('fonts/Poppins-BoldItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 800; src: url('fonts/Poppins-ExtraBold.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 800; src: url('fonts/Poppins-ExtraBoldItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 900; src: url('fonts/Poppins-Black.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Poppins'; font-style: italic; font-weight: 900; src: url('fonts/Poppins-BlackItalic.ttf') format('truetype'); font-display: swap; }
+
+/* Prompt — display/koppen/buttons. Volledig lokaal, alle gewichten + italics. */
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 100; src: url('fonts/Prompt-Thin.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 100; src: url('fonts/Prompt-ThinItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 200; src: url('fonts/Prompt-ExtraLight.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 200; src: url('fonts/Prompt-ExtraLightItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 300; src: url('fonts/Prompt-Light.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 300; src: url('fonts/Prompt-LightItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 400; src: url('fonts/Prompt-Regular.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 400; src: url('fonts/Prompt-Italic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 500; src: url('fonts/Prompt-Medium.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 500; src: url('fonts/Prompt-MediumItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 600; src: url('fonts/Prompt-SemiBold.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 600; src: url('fonts/Prompt-SemiBoldItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 700; src: url('fonts/Prompt-Bold.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 700; src: url('fonts/Prompt-BoldItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 800; src: url('fonts/Prompt-ExtraBold.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 800; src: url('fonts/Prompt-ExtraBoldItalic.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: normal; font-weight: 900; src: url('fonts/Prompt-Black.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Prompt'; font-style: italic; font-weight: 900; src: url('fonts/Prompt-BlackItalic.ttf') format('truetype'); font-display: swap; }
+
+:root {
+  /* ---------- Merkkleuren (brandbook) ---------- */
+  --vz-primary:   #0b334c; /* Primair + tekst — diep marineblauw */
+  --vz-secondary: #3e8684; /* Secundair — teal, voor primary actions, links */
+  --vz-accent:    #8dc795; /* Accent — mintgroen, voor highlights + success */
+  --vz-bg-light:  #f2f4fb; /* Koel licht — page achtergrond (default) */
+  --vz-bg-beige:  #f2ede4; /* Warm cream — alternatieve achtergrond */
+
+  /* Hover / pressed varianten — opgebouwd via opacity in code,
+     hier als statische hex voor reference. */
+  --vz-primary-90:   #1d4664;
+  --vz-secondary-90: #56918f;
+  --vz-accent-soft:  #c4ddc6;
+
+  /* ---------- Aliassen voor Tailwind-naam in codebase ---------- */
+  --color-primary:   var(--vz-primary);
+  --color-secondary: var(--vz-secondary);
+  --color-accent:    var(--vz-accent);
+  --color-bgLight:   var(--vz-bg-light);
+  --color-bgBeige:   var(--vz-bg-beige);
+
+  /* ---------- Semantische tokens (light mode) ---------- */
+  --color-bg-page:    #f2f4fb;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle:  #f9fafb;
+  --color-bg-muted:   #f3f4f6;
+
+  --color-text-heading: #111827;
+  --color-text-body:    #374151;
+  --color-text-muted:   #6b7280;
+  --color-text-faint:   #9ca3af;
+
+  --color-border-default: #e5e7eb;
+  --color-border-subtle:  #f3f4f6;
+  --color-border-strong:  #d1d5db;
+
+  /* ---------- Alert / status kleuren ----------
+     Matchen de banner-stijl (Tailwind 50 bg, 200 border, 900 text, 100 iconbox, 700 icon).
+     Action variant gebruikt de brand teal i.p.v. paars. */
+  --alert-info-bg:    #eff6ff;  --alert-info-border:    #bfdbfe;  --alert-info-text:    #1e3a8a;  --alert-info-icon:    #1d4ed8;
+  --alert-success-bg: #f0fdf4;  --alert-success-border: #bbf7d0;  --alert-success-text: #166534;  --alert-success-icon: #16a34a;
+  --alert-warning-bg: #fffbeb;  --alert-warning-border: #fde68a;  --alert-warning-text: #92400e;  --alert-warning-icon: #b45309;
+  --alert-error-bg:   #fef2f2;  --alert-error-border:   #fecaca;  --alert-error-text:   #991b1b;  --alert-error-icon:   #dc2626;
+  --alert-action-bg:  #ecf5f4;  --alert-action-border:  #c4dcda;  --alert-action-text:  #0b334c;  --alert-action-icon:  #3e8684;
+
+  /* ---------- Typografie ---------- */
+  --font-sans:    'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Prompt', 'Poppins', system-ui, sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', Menlo, monospace;
+
+  /* Weights */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* Type-schaal — afgeleid uit Tailwind text-* zoals gebruikt in codebase.
+     Mobile-first; *-md varianten zijn de desktop bumps. */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;  /* basis input/body, voorkomt iOS zoom */
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+  --text-4xl:  36px;
+
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  /* ---------- Spacing — Tailwind compatibel ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---------- Radii ---------- */
+  --radius-sm: 6px;    /* badges, kleine pills (gebruik liever -full) */
+  --radius-md: 8px;    /* rounded-lg — inputs, kleine buttons */
+  --radius-lg: 12px;   /* rounded-xl — cards, banners, grote buttons */
+  --radius-xl: 16px;   /* rounded-2xl — modals desktop, action banners */
+  --radius-2xl: 24px;  /* rounded-3xl — bottom sheets */
+  --radius-full: 9999px;
+
+  /* ---------- Shadows — subtiel, geen harde schaduw ---------- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.10), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.18);
+
+  /* Focus ring — bouwt op secondary kleur */
+  --ring-focus: 0 0 0 3px rgb(62 134 132 / 0.25);
+
+  /* Animatie */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+}
+
+/* ---------- Dark mode overrides ---------- */
+.dark, [data-theme="dark"] {
+  --color-bg-page:     #0f172a;
+  --color-bg-surface:  #1e293b;
+  --color-bg-subtle:   #334155;
+  --color-bg-muted:    #475569;
+  --color-text-heading:#f1f5f9;
+  --color-text-body:   #cbd5e1;
+  --color-text-muted:  #94a3b8;
+  --color-text-faint:  #64748b;
+  --color-border-default:#334155;
+  --color-border-subtle: #1e293b;
+  --color-border-strong: #475569;
+  --color-bgLight:     #0f172a;
+  --color-bgBeige:     #1e293b;
+}
+
+/* ============================================================
+   Semantische type-klassen — drop-in voor HTML zonder Tailwind.
+   Houd Tailwind utilities voor productie; deze klassen zijn voor
+   prototypes, slides en losse design-artifacts.
+   ============================================================ */
+
+html { font-family: var(--font-sans); color: var(--color-text-body); }
+body { background: var(--color-bg-page); }
+
+.vz-h1, h1.vz {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  color: var(--vz-primary);
+  letter-spacing: -0.01em;
+}
+@media (min-width: 768px) { .vz-h1, h1.vz { font-size: var(--text-4xl); } }
+
+.vz-h2, h2.vz {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--vz-primary);
+}
+@media (min-width: 768px) { .vz-h2, h2.vz { font-size: var(--text-2xl); } }
+
+.vz-h3, h3.vz {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--vz-primary);
+}
+
+.vz-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.vz-body, p.vz {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+}
+
+.vz-small {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.vz-label {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--text-sm);
+  color: var(--color-text-body);
+}
+
+.vz-mono, code.vz {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--color-bg-muted);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.vz-num {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Reusable card primitive ---------- */
+.vz-card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
